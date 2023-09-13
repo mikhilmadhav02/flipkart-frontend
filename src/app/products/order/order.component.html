@@ -1,0 +1,105 @@
+<!-- spinners -->
+
+<div style="width: 100%;height:425.4px ;background-color: white;" *ngIf="spinners" >
+
+    <div style="margin-left:600px;padding-top:205px;" >
+  
+      <div  class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+  
+    </div>
+  
+  </div>
+
+
+<!-- empty cart -->
+
+<ng-container *ngIf="!spinners" >
+    <div  style="background-color: white; margin-bottom:px;  width:100%; height:540px;" *ngIf="order.length==0"  >
+      <div class="row">
+          
+  
+          <div style="margin-top:5px;" class="col text-center">
+              <img style="padding-top: 50px;" height="340px" src="https://www.theheartmart.com/customer_portal/shopping2-gif.gif" alt="">
+              <h3 style="margin-top:20px; margin-bottom: 20px;" class="text-danger" >Order Empty</h3>
+             <div style="display: flex; justify-content: center;align-items: center;align-content: center;">
+              <div style=" margin-top:10px; padding-top:5px; color: whitesmoke; border-radius:.2cm; background-color: green; width:135px;height: 34px;" class="" routerLink="">Add More </div>
+             </div>
+          </div>
+      </div>
+      </div>
+  </ng-container>
+
+<!-- wishlist code -->
+<ng-container *ngIf="!spinners" >
+    <div  *ngIf="order.length>0" style="margin-top: 19px ;margin-bottom:165px;  " >
+        <div style="display: flex; justify-content: center; background-color: white; padding-left: 20px; padding-top: 20px;"><h3  style="margin-top:-7px; margin-bottom: 12px;" >My Orders</h3></div>
+        <div class="row">
+            
+            <div style="  background-color: white; border-right:solid.035cm;  border-color: lightgrey;   margin-top: 10px; margin-bottom:-6px;  height: 180px;" *ngFor="let wishlists of order | filter : searchkey : 'title'    " class="col-6 ">
+               <div class="row">
+                <div class="col-1"></div>
+                <div style="margin-left:-20px;" class="col-3">
+                    <div style="height: 160px;display: flex; justify-content: center; align-items: center;" >
+                        <div><img width="130px" height="130px" [src]="wishlists.image" alt=""></div>
+                         
+                     </div>
+                </div>
+                <div style="padding-left:0px;" class="col-8">
+                    <div  style="margin-top: 40px;" >
+                       
+                       <div style="display: flex;" >
+                        <p style="font-size:.53cm; font-weight: 630;color: rgb(126, 126, 126);" class="" >{{wishlists.brand}}</p>
+                        <p  class="ms-2 " style="margin-top: 3px; font-size: .435cm; color: black; " >{{wishlists.title}}</p>
+                         
+                                  </div>
+                       
+                       
+        
+                              <div  style="display: flex; margin-top:-10px ;" >
+                                <span style="font-size:.5cm ; color: rgb(12, 12, 12); font-weight:lighter;" class=""> <i class="fa-solid fa-indian-rupee-sign fa-sm   "></i> </span>
+                                <p class="" style=" font-size:.55cm ; color: rgb(11, 11, 11); margin-top:-2px; font-weight: 500; " > {{wishlists.offerprice}}</p>
+                                
+                                
+                                 
+                            </div>
+        
+         <div  style="margin-top: 13px;margin-left: 270px;"> <span  style="padding-top:x; color: rgba(116, 116, 118, 0.801);font-weight: 500; font-size:.37cm ;"  >Ordered on: {{wishlists.d}}/{{wishlists.m}}/{{wishlists.y}}</span  ></div>
+        
+                                    <div>
+                                        
+                      
+                                    </div>
+                                
+        
+                        
+                           
+                    </div>
+                    
+                </div>
+                
+               </div>
+            </div>
+        
+            <div class="col-6"></div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+</ng-container>
+
+
+
+

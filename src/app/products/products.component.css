@@ -1,0 +1,21 @@
+@media(max-width:1300px){
+    #mdiv{
+      width: 426px;
+    }
+}
+@media(max-width:865px){
+    #mdiv{
+      
+        margin-top: 15px;
+      background-color: rgb(16, 16, 221);
+    }
+}
+@media(max-width:1255px){
+    #rdiv{
+        margin-top: 15px;
+    }
+}
+
+#hdiv:hover {
+    transform: scale(1.065);
+}

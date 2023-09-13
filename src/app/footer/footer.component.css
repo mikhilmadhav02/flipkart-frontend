@@ -1,0 +1,55 @@
+#footer{
+  font-weight: 400;
+  font-size:.4cm;
+   color: rgba(95, 95, 94, 0.854);
+    width: 100%;
+    height: px;
+  border-top: .001cm solid rgb(190, 188, 188);
+
+
+   /* https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/ffffb33d3a8085e1.jpg?q=20 */
+   /* https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/6819c6adbf2269e5.jpg?q=20 */
+ /*
+   /* background-image: url("https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/0d1f86d9340c6521.png?q=20"); */
+}
+#footertag{
+    margin-top: -33px;
+}
+
+@media(max-width:900px){
+  #ldiv  {
+    font-size:.37cm ;
+    padding-top:100px ;
+    margin-left:-260px;
+  }
+}
+
+@media(max-width:900px){
+  #cdiv {
+    margin-right:200px;
+    padding-top: 60px;
+    font-size:.37cm;
+   
+   
+  }
+}
+
+@media(max-width:900px){
+  h6{
+    font-size:.37cm;
+  }
+}
+
+@media(max-width:750px){
+  #footer , h6{
+    
+font-size:.33cm;
+  }
+}
+
+@media(max-width:750px){
+  #ldiv{
+    padding-top: 140px;
+    
+  }
+}

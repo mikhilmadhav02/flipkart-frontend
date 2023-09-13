@@ -1,0 +1,98 @@
+
+
+<!-- end -->
+
+
+<!-- nav bar -->
+<nav class="navbar navbar-expand-lg bg-primary fixed-top
+ ">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-5 text-white" href="#"><i class="fa-solid fa-cart-shopping text-warning"></i> <span style="font-size:.55cm;color: rgb(247, 242, 249);font-weight: 620;" class=" " > flipkart</span></a>
+   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul style="width: 400px;height:34.5px;" class="navbar-nav me-auto mb-2 mb-lg-0">
+        <input (keyup)="search($event)" name="searchkey" class="form-control me-2  " type="search" placeholder="Search  " aria-label="Search">
+        </ul>
+      <form class="d-flex me-4 align-item-center " role="search">
+
+        <div class="btn-group me-5">
+          <!-- signup -->
+          <div style="padding-right: 1px;font-size:.45cm;color: rgb(40, 40, 40);padding-top:3px ;" *ngIf="!sign" routerLink="/login" class=" " type="button">
+          <i  class="fa-solid fa-circle-user fa-lg"></i> 
+          <span style="font-weight: 500;" > Sign in</span>
+         </div>
+<!-- login -->
+<div *ngIf="sign" style="font-size:.45cm;color:rgb(40, 40, 40);padding-top: 3px;" class=" " type="button">
+   <i style="font-weight: 600;" class="fa-regular fa-user"></i>
+  <span style="margin-left: 3px;font-weight: 500;"> {{username.toUpperCase()}}</span>
+  </div>
+
+
+          <div style="padding-right: 20px;color: rgb(40, 40, 40);padding-top: 4.3px;" type="button" class="   dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </div>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item" (click)="profileselect()"><i class="fa-solid fa-user-gear"></i>   <span class="ms-2"> Profile</span></a></li>
+              <li><a class="dropdown-item" (click)="clickwish()"><i class="fa-solid fa-heart"></i> <span class="ms-3">Wishlist</span></a></li>
+              <li><a class="dropdown-item" (click)="order()" ><i class="fa-solid fa-store"></i> <span class="ms-2"> Orders</span></a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gift"></i> <span class="ms-3">Rewards</span></a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li  >
+                <a *ngIf="!sign" class="dropdown-item" routerLink="/register">New Customer ,<span class="text-primary fw-bold" > Sign Up</span></a>
+                <a *ngIf="sign" class="dropdown-item" routerLink=""><span  style="font-size:.432cm;">To Signout Click, </span> <span (click)="logout()" style="font-size:.48cm;font-weight: 500;" class="text-primary " >Sign Out </span></a>
+              </li>
+          </ul>
+        </div>
+        
+
+<div (click)="clickcart()" style="display: flex;margin-right: 40px;margin-top: 1px;" >
+
+  <div style="margin-top:px;color: rgb(40, 40, 40)"  class="me-5" ><i style="font-size:.52cm;" class="fa-solid fa-cart-shopping fa-lg"></i> <span  style="font-size:.50cm;font-weight: 500;"> Cart</span>
+  </div>
+  <div  *ngIf="sign" style="margin-top: 5.5px;margin-right: px;"  ><span style="margin-left:-43px; width:20px;height: 18px;display: flex;justify-content: center;align-items: center; " class="  badge bg-white text-dark  rounded-pill text-center ">{{count}}</span></div>
+</div>
+
+
+<div  data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"  class="" ><i style="color: rgb(40, 40, 40);padding-top: px; margin-top:4px; font-size:.6cm;" class="fa-solid fa-bars "></i></div>
+        
+      </form>
+    </div>
+  </div>
+</nav>
+      
+          
+
+   <!-- offcanvas of nav three lines -->
+   <div  class="offcanvas offcanvas-start " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header text-primary d-flex align-item-center ">
+      <h5 class="offcanvas-title ms-2 " id="offcanvasWithBothOptionsLabel"><i class="fa-solid fa-house-user fa-sm "></i> <span class="ms-2" >Home</span> </h5>
+      <h5 class="me-3 text-primary" >flipkart</h5>
+      </div>
+     
+    <div id="offbody" style="font-size:.42cm;" class="offcanvas-body  ">
+       <div data-bs-dismiss="offcanvas" routerLink="" class="mb-2 ms-2 mt-2" ><i class="fa-brands fa-windows"></i><span class="ms-4" >All Categories</span></div>
+      <div data-bs-dismiss="offcanvas" routerLink="/products/fashion" class="mb-2 ms-2" ><i class="fa-solid fa-layer-group"></i><span class="ms-3">Trending Stores</span></div>
+      <div data-bs-dismiss="offcanvas" class="mb-2 ms-2"><i class="fa-solid fa-language"></i><span class="ms-3">Choose Language</span></div>
+      <div (click)="order()" data-bs-dismiss="offcanvas" class="mb-2 ms-2"><i class="fa-solid fa-store"></i><span class="ms-3">My orders</span></div>
+      <div data-bs-dismiss="offcanvas" (click)="clickcart()" class="mb-2 ms-2"><i class="fa-solid fa-cart-arrow-down"></i><span class="ms-3">My Cart</span></div>
+       <div data-bs-dismiss="offcanvas" (click)="clickwish()" class="mb-2 ms-2"><i class="fa-solid fa-heart"></i><span class="ms-3">My Wishlist</span></div>
+       <div data-bs-dismiss="offcanvas" class="mb-2 ms-2"><i class="fa-regular fa-pen-to-square"></i><span class="ms-3">Reviews</span></div>
+    
+
+      <h5  class="ms-2 mt-3 text-primary ">Account Settings</h5>
+      <div (click)="profileselect()" data-bs-dismiss="offcanvas" class="mb-2 ms-2"><i class="fa-solid fa-user"></i><span class="ms-3">Edit Profile</span></div>
+      <div data-bs-dismiss="offcanvas" (click)="profileselect()" class="mb-2 ms-2"><i class="fa-solid fa-location-dot"></i><span class="ms-3">Saved Address</span></div>
+       <div data-bs-dismiss="offcanvas" class="mb-2 ms-2"><i class="fa-solid fa-bell"></i><span class="ms-3">Notification</span></div>
+
+       <div data-bs-dismiss="offcanvas" class="mb-2 ms-2"><i class="fa-solid fa-paste"></i><span class="ms-3">Terms, Policies, Licenses</span></div>
+       <div data-bs-dismiss="offcanvas" class="mb-2 ms-2"><i class="fa-solid fa-headset"></i><span class="ms-3">Help Center</span></div>
+       <div data-bs-dismiss="offcanvas" class="mb-2 ms-2"><i class="fa-regular fa-circle-question"></i><span class="ms-3">Browse FAQs</span></div>
+       <div (click)="logout()" class="d-flex justify-content-center align-item-center" >
+        <a routerLink="" style="width: 75%;" class="btn btn-sm btn-primary mt-3 text-center" data-bs-dismiss="offcanvas">Logout</a>
+       </div>
+    </div>
+  </div>

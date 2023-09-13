@@ -1,0 +1,101 @@
+
+<!-- spinners -->
+
+<div style="width: 100%;height:425.4px ;background-color: white;" *ngIf="spinners" >
+
+    <div style="margin-left:600px;padding-top:153px;" >
+  
+      <div  class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+  
+    </div>
+  
+  </div>
+<!--  -->
+
+<!-- view code -->
+
+
+<div *ngIf="!spinners" style="margin-top: 20px;margin-left: 12px;margin-right: 10px;" >
+    
+    <div style="display: flex; justify-content: center; background-color: white; padding-left: 20px; padding-top: 10px;"><h3  style=" margin-bottom: 12px;" >Product Details</h3></div>
+</div>
+
+    <div *ngIf="!spinners" style="" class="row">
+        
+        <div  style="margin-left:24px ;height: 432px; margin-right:px ;width: 1257px; ;  background-color: white; border-right:solid.035cm;  border-color: lightgrey;   margin-top: 10px; margin-bottom:px;  "  class="col-12 ">
+           <div style="margin-top:70px;" class="row">
+            <div class="col-1"></div>
+            <div style=" margin-top:20px; margin-left:-40px;" class="col-3">
+                <div style="height: px;display: flex; justify-content: center; align-items: center;" >
+                    <div><img width="270px" height="280px" [src]="product.image" alt=""></div>
+                     
+                 </div>
+            </div>
+            <div style="margin-left:40px;" class="col-8">
+                <div  style="margin-top: -30px;" >
+                   
+                   <div style="display: flex;" >
+                    <p style="font-size:.8cm; font-weight: 430;color: rgb(126, 126, 126);" class="" >{{product.brand}}</p>
+                    <p  class="ms-2 " style="margin-top: 3px; font-size: .7cm; color: black; " >{{product.title}}</p>
+                     
+                              </div>
+                   <button class="btn" style=" margin-top: -20px; width: 43px; height: 23.5px; color: white; background-color: green; ">
+                              <div style=" margin-top:-4.69px; display: flex; justify-content: center;" ><p style="font-size:.34cm;" >4.3</p> <p style="margin-left: 2px; margin-top: 3.5px; font-size:.235cm;" > <i class="fa-solid fa-star "></i></p></div>
+                   </button>
+    
+                   <div style="margin-left: 70px; margin-top: -49px;   "  >
+                    <span class="" ><img width="102px" height="60px" src="https://www.vinculumgroup.com/wp-content/uploads/2022/11/flipkart-assured.png" alt=""></span>
+                   </div>
+    
+                          <div  style="display: flex; margin-top:-10px ;" >
+                  <span style="font-size:.95cm ; color: rgb(12, 12, 12); font-weight:lighter;" class=""><i class="fa-solid fa-indian-rupee-sign fa-sm   "></i></span>
+                             <p class="" style=" font-size:1cm ; color: rgb(11, 11, 11); margin-top:-3px; font-weight: 500; " >{{product.offerprice}}</p>
+                            
+                            <span class="" style=" font-weight:; margin-top: 11px; color: rgb(141, 139, 139); margin-left: 15px; font-size:.6cm;" > <i  class="fa-solid fa-indian-rupee-sign text-decoration-line-through  "><span style="font-weight: 200;" >{{product.price}}</span></i>  </span>
+                              <span  style="margin-top: 11.2px; color: rgba(30, 167, 30, 0.847);font-weight: 500; font-size:.6cm ;margin-left: 20px;"  >{{product.percentage}} %<span class="" >off</span> </span  >
+                        </div>
+    
+                              <div style="font-weight: 450; font-size: .48cm; margin-top:-15px;" >Free delivery</div>
+                    
+<br>
+<br>
+                              <div>
+                                <span style="font-size:.49cm;font-weight: 500;" >Highlights: </span> 
+                                       <div style="margin-left: 120px;margin-top:-27px;">
+                                    <div><span  ><i style="margin-bottom:px;font-size:.20cm;" class="fa-solid fa-circle fa-2xs text-secondary"></i></span> <span style="margin-top:px; font-size:.44cm;margin-left:4px;"> impressive features and of thought </span></div>
+                                    <div><span  ><i style="margin-bottom:px;font-size:.20cm;" class="fa-solid fa-circle fa-2xs text-secondary"></i></span> <span style="margin-top:px; font-size:.44cm;margin-left:4px;"> is interesting to use as it is built </span></div>
+                                    <div><span  ><i style="margin-bottom:px;font-size:.20cm;" class="fa-solid fa-circle fa-2xs text-secondary"></i></span> <span style="margin-top:px; font-size:.44cm;margin-left:4px;"> can invoke different colours </span></div>
+                                    <div><span  ><i style="margin-bottom:px;font-size:.20cm;" class="fa-solid fa-circle fa-2xs text-secondary"></i></span> <span style="margin-top:px; font-size:.44cm;margin-left:4px;"> seems to be aa awesome </span></div>
+                                    <div><span  ><i style="margin-bottom:px;font-size:.20cm;" class="fa-solid fa-circle fa-2xs text-secondary"></i></span> <span style="margin-top:px; font-size:.44cm;margin-left:4px;"> In display finger print </span></div>
+
+                                       </div> 
+                             </div>
+
+
+                        <div (click)="addtowishlist(product)" style=" margin-top:-320px; margin-left:663px;" ><i  class="fa-solid fa-heart fa-xl text-secondary "></i></div>
+                
+                          <div (click)="addtocart(product)" style="font-size:.4cm;background-color: green; color:white;border: solid .005cm; border-radius: .09cm; display: flex; justify-content: center; align-items: center; height:35px; width:142px ; margin-top:245px; margin-left:610px; " >Add to Cart</div>
+                </div>
+                
+            </div>
+            
+           </div>
+        </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>

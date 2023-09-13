@@ -1,0 +1,399 @@
+<!-- spinners -->
+
+<div style="width: 100%;height:425.4px ;background-color: white;" *ngIf="spinners" >
+
+  <div style="margin-left:600px;padding-top:205px;" >
+
+    <div  class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- cart -->
+<ng-container *ngIf="!spinners" >
+  <div style="margin-bottom:62px;" *ngIf="cart.length>0" >
+    <div class="row">
+        <div class="col-8">
+            <div style="width: 824px; margin-left: 12px; margin-top: 20px; display: flex; justify-content: center; background-color: white; padding-left: 20px; padding-top: 20px;"><h3  style="margin-top:-7px; margin-bottom: 12px;" ><span *ngIf="check">My Cart</span> <span *ngIf="!check">Payment Details</span> </h3></div>
+
+            <!-- delivey details -->
+            <div *ngIf="proceedpay" >
+                <div  style="height: 436px;" *ngIf="!check" class="row">
+                    <div style=" width:824px; margin-left: 24px;   background-color: white; border-right:solid.035cm;  border-color: lightgrey;   margin-top: 10px; margin-bottom:-6px;  "  class="col-12 ">
+                        
+                      <div style="margin-top: 30px; margin-left: 20px;" ><h5>Delivery Address:</h5></div>
+                      <form [formGroup]="deliverydetails" >
+    
+                      <div class="row">
+                        <div class="col-6">
+    
+    
+                           
+                        <div style=" margin-left: 110px;margin-top: 15px; width: 250px;" class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+                            <input  name="name" formControlName="name" style="margin-top:-8px;" type="text" class="form-control" id="exampleFormControlInput1" >
+                          </div>
+                          <div style=" margin-left: 110px;margin-top:-5px; width: 250px;" class="mb-3">
+                            <label for="exampleFormControlInput5" class="form-label">Mobile No:</label>
+                            <input name="mobile" formControlName="mobile" style="margin-top:-8px;" type="text" class="form-control" id="exampleFormControlInput5" >
+                          </div>
+                          <div style=" margin-left: 110px;margin-top:-5px; width: 250px;" class="mb-3">
+                            <label for="exampleFormControlInput5" class="form-label">Email Id:</label>
+                            <input name="email" formControlName="email" style="margin-top:-8px;" type="text" class="form-control" id="exampleFormControlInput5" >
+                          </div>
+                          
+                          <div style="margin-top: 30px; margin-left:135px;" class="form-check">
+                            <input  class="form-check-input border border-dark" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              <span>Home</span><span> All day Delivery</span>
+                            </label>
+                          </div>
+                          
+                        </div>
+                        <div class="col-6">
+    
+                            <div style=" margin-left: 15px;margin-top:15px; width: 250px;" class="mb-3">
+                                <label  for="exampleFormControlInput5" class="form-label">Address</label>
+                                <input name="address" formControlName="address" style="margin-top:-8px;" type="text" class="form-control" id="exampleFormControlInput5" >
+                              </div>
+                                  
+                              <div style=" margin-left: 15px;margin-top:-5px; width: 250px;" class="mb-3">
+                                <label for="exampleFormControlInput5" class="form-label">State & District</label>
+                                <input name="state" formControlName="state" style="margin-top:-8px;" type="text" class="form-control" id="exampleFormControlInput5" >
+                              </div>
+                              <div style=" margin-left: 15px;margin-top:-5px; width: 250px;" class="mb-3">
+                                <label for="exampleFormControlInput5" class="form-label">Pincode</label>
+                                <input name="pincode" formControlName="pincode" style="margin-top:-8px;" type="text" class="form-control" id="exampleFormControlInput5" >
+                              </div>
+    
+                              <div style="margin-top: 30px; margin-left:20px;" class="form-check">
+                                <input class="form-check-input border border-dark" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                  <span>Work</span> <span> Between (10AM - 5PM)</span>
+                                </label>
+                              </div>
+    
+                        </div>
+                      </div>
+    
+                      </form>
+    
+    
+                              <div style="margin-top:32px; margin-left: 30px; display: flex; justify-content: center;" >
+                                <span *ngIf="saveadd" (click)="saveaddress()" style="border-radius: .2cm; display: flex; justify-content: center;align-items: center; width:160px ; height:35px ; background-color: blue;color: aliceblue;" >Save Address</span>
+                                <div *ngIf="!saveadd" style="border-radius: .2cm; display: flex; justify-content: center;align-items: center; width:160px ; height:35px ; background-color:rgb(237, 235, 235);color: rgb(51, 51, 51);"  >Address Saved</div>
+                              </div>
+                     </div>
+    
+    
+                 </div>
+            </div>
+
+            <!-- delivery details ends -->
+
+
+
+
+                          <!-- *ngIf="!proceedpay"  proceed to pay  -->
+            <div *ngIf="!proceedpay" style=""  class="row">
+                <div style="height: 431px; width:824px; margin-left: 24px;   background-color: white; border-right:solid.035cm;  border-color: lightgrey;   margin-top: 10px; margin-bottom:-6px;  "  class="col-12 ">
+                    
+                 <div class="row">
+
+
+                   <div class="col-6">
+
+                    <div style="">
+
+                      <div style="margin-top: 40px; margin-left: 25px;margin-right:px;" ><h5>Delivery Address:</h5></div>
+    
+                      <div style="margin-right:-20px; border-right:.005cm solid grey; margin-top:px; margin-left: 120px;" >
+                          <div> {{deliverydetails.value.name}}</div>
+                          <div> {{deliverydetails.value.address}}</div>
+                          <div> {{deliverydetails.value.state}}</div>
+                          <div> {{deliverydetails.value.pincode}}</div>
+                          <div> {{deliverydetails.value.email}}</div>
+                          <div> {{deliverydetails.value.mobile}}</div>
+                                </div>
+    
+                     </div>
+    
+
+                   </div>
+
+
+
+                   <div style="margin-left:px;" class="col-6">
+
+
+
+
+
+
+
+                               <!-- discount tags -->
+                              
+                                    
+                                  <ng-container  >
+                                    <div style="margin-bottom:176px;" class="d-flex" *ngIf="offers" >
+                                      <div style="margin-left:60px; margin-top:95px;" > <img  *ngIf="discountm10" (click)="discount10()" width="120px" height="100px" src="https://previews.123rf.com/images/blankstock/blankstock1805/blankstock180500242/100696857-up-to-20-discount-sale-offer-price-sign-special-offer-symbol-save-20-percentages-speech-bubble.jpg" alt=""> </div>
+                                      <div style="margin-left:40px; margin-top:85px;" > <img  *ngIf="discountn50" (click)="discount50()" class="" width="120px" height="110px" src="https://img.freepik.com/premium-vector/round-blue-price-tag-with-50-percent-off-text-png_678696-239.jpg?w=2000" alt=""> </div>
+                                      </div>
+                                  </ng-container>
+                                      
+                                  
+                                  <!-- offer -->
+                                 <ng-container  >
+                                  <div  *ngIf="!offers" style="margin-bottom:215px; margin-left:96px; margin-top:125px;">
+                                    <span style="font-size:.49cm; font-weight: 500;color: rgb(110, 110, 110);" >click to avail, </span>  <span (click)="offer()"  class=" text-success" ><i class="fa-solid fa-tag fa-xl"></i>
+                                        <span style="padding-top:-15px;font-weight: 500;  font-size: .54cm;" > Offers</span>
+                                    </span>
+                                   </div>
+                                 </ng-container>
+
+
+
+                                  
+
+                    <!-- when offer applied ,discount 20 tag fixed -->
+
+                    <ng-container >
+                      <div style="margin-left:px; margin-top:-140px; margin-bottom:176px;" class="d-flex justify-content-center text-secondary " *ngIf="dis10" >
+                     
+                        <div style="position:relative; margin-left:px; margin-top:-36px;" > <img    width="120px" height="100px" src="https://previews.123rf.com/images/blankstock/blankstock1805/blankstock180500242/100696857-up-to-20-discount-sale-offer-price-sign-special-offer-symbol-save-20-percentages-speech-bubble.jpg" alt=""> </div>
+                        <div  style="margin-left:-210px; position:relative;font-size:.47cm;font-weight: 500;">applied offer:- </div>
+                        </div>
+                    </ng-container>
+
+                    <!-- discount 20 tag code ends -->
+
+
+<!-- when offer applied ,discount 50 tag fixed -->
+
+<ng-container>
+  <div style="margin-left:px; margin-top:-140px; margin-bottom:180px;" class=" d-flex justify-content-center text-secondary " *ngIf="dis50" >
+    <div style="position:relative; margin-left:px; margin-top:-50px;" > <img  class="" width="120px" height="110px" src="https://img.freepik.com/premium-vector/round-blue-price-tag-with-50-percent-off-text-png_678696-239.jpg?w=2000" alt=""> </div>
+    <div style="margin-left:-210px; position:relative;font-size:.47cm;font-weight: 500;"  >applied offer:- </div>
+ </div>
+</ng-container>
+
+                    <!-- discount 50 tag code ends -->
+
+
+
+
+                                   <!-- show success -->
+                                    <div style="margin-bottom:-10px; margin-left:9px; margin-top:-145px; display: flex;justify-content: center;" >
+                                    <p style="font-weight: 500; font-size:.5cm;" class="text-danger" *ngIf="showSuccess" >Payment Completed, Order Placed</p>
+                                    <p style="font-weight: 500; font-size:.5cm;" class="text-danger" *ngIf="showCancel" >Transcation Canceled</p>
+                                    <p style="font-weight: 500; font-size:.5cm;" class="text-danger" *ngIf="showError" >Failed, Try Again</p>
+                                    </div>
+
+                   </div>
+                           </div>
+
+
+                             <!-- paypal -->
+                        
+                         <div  style="margin-top:79px;" class="row">
+                          <div style="" class="col-4"></div>
+                          <div class="col-4">
+                                <!-- paypal button -->
+                              <div *ngIf="!responsetopaypal" style="margin-top:5px;"  >
+                                  <ngx-paypal  [config]="payPalConfig"></ngx-paypal>
+                               </div>
+                                      <!-- succesful button -->
+                                      <div routerLink="" *ngIf="continuetoshop" style="margin-top:54px; margin-left:37px; color: whitesmoke; width:180px; height:38px; border-radius:.17cm; background-color:rgb(10, 122, 10); display: flex; justify-content: center; align-items: center;" >
+                                        <span>Continue Shopping</span>
+                                      </div>
+
+                                       <!-- cancel/error button -->
+                                       <div routerLink="/products/plaincart"  *ngIf="continuetocheckout" style="margin-top:54px; margin-left:37px; color: whitesmoke; width:180px; height:38px; border-radius:.17cm; background-color:rgb(249, 132, 15); display: flex; justify-content: center; align-items: center;" >
+                                        <span>Continue Checkout</span>
+                                      </div>
+
+                          </div>
+                          <div class="col-4"></div>
+                      </div>   
+       
+                        
+                        
+           
+                               
+
+
+                          <div style="margin-top:23.5px; margin-left: 30px; display: flex; justify-content: center;" >
+                            <span *ngIf=""  style="border-radius: .2cm; display: flex; justify-content: center;align-items: center; width:160px ; height:35px ; background-color: blue;color: aliceblue;" >Save Address</span>
+                            <div *ngIf="" style="border-radius: .2cm; display: flex; justify-content: center;align-items: center; width:160px ; height:35px ; background-color:rgb(237, 235, 235);color: rgb(51, 51, 51);"  >Address Saved</div>
+                          </div>
+                 </div>
+
+
+             </div>
+
+            <!-- proceed to pay paypal page -->
+
+
+
+
+                          <!-- cart col -->
+             <div style="margin-bottom:10px;" *ngIf="check" class="row">
+                <div style=" width:824px; margin-left: 24px;   background-color: white; border-right:solid.035cm;  border-color: lightgrey;   margin-top: 10px; margin-bottom:-6px;  height: 195px;" *ngFor="let wishlists of cart" class="col-12 ">
+                    <div class="row">
+                     <div class="col-1"></div>
+                     <div style="margin-left: -25px;" class="col-3">
+                         <div style="height: 160px;display: flex; justify-content: center; align-items: center;" >
+                             <div><img width="130px" height="130px" [src]="wishlists.image" alt=""></div>
+                              
+                          </div>
+                          <div style="display: flex; margin-left: 43px; margin-top:-5px;" >
+                            <div (click)="minus(wishlists.id)" style="margin-top: 3px; padding-bottom: 4.5px; display: flex;align-items: center; justify-content: center;height:20px; width: 20px;border-radius: 100%; border: .001cm solid lightgrey;" >-</div>
+                            <div style="display: flex; justify-content: center;height:25px ; width: 30px;border-radius: 15%; border: .001cm solid lightgrey; margin-left: 10px;" >{{wishlists.quantity}}</div>
+                            <div (click)="plus(wishlists.id)" style=" margin-top: 3px; padding-bottom: 4.5px; margin-left: 10px; display: flex;align-items: center; justify-content: center;height:20px ; width: 20px;border-radius: 100%; border: .001cm solid lightgrey;">+</div>
+                          </div>
+                     </div>
+                     <div style="" class="col-8">
+                         <div  style="margin-top: 20px;" >
+                            
+                            <div style="display: flex;" >
+                             <p style="font-size:.53cm; font-weight: 630;color: rgb(126, 126, 126);" class="" >{{wishlists.brand}}</p>
+                             <p  class="ms-2 " style="margin-top: 3px; font-size: .435cm; color: black; " >{{wishlists.title}}</p>
+                              
+                                       </div>
+                            <button class="btn" style=" margin-top: -35px; width: 40px; height: 23.5px; color: white; background-color: green; ">
+                                       <div style=" margin-top:-4.69px; display: flex; justify-content: center;" ><p style="font-size:.34cm;" >4.3</p> <p style="margin-left: 2px; margin-top: 3.5px; font-size:.235cm;" > <i class="fa-solid fa-star "></i></p></div>
+                            </button>
+             
+                            <div style="margin-left: 60px; margin-top: -50px;   "  >
+                             <span class="" ><img width="80px" height="50px" src="https://www.vinculumgroup.com/wp-content/uploads/2022/11/flipkart-assured.png" alt=""></span>
+                            </div>
+             
+                                   <div  style="display: flex; margin-top:-5px ;" >
+                           <span style="font-size:.5cm ; color: rgb(12, 12, 12); font-weight:lighter;" class=""><i class="fa-solid fa-indian-rupee-sign fa-sm   "></i></span>
+                                      <p class="" style=" font-size:.55cm ; color: rgb(11, 11, 11); margin-top:-1.8px; font-weight: 500; " >{{wishlists.total}}</p>
+                                     
+                                     <span class="" style=" font-weight:100; margin-top: 2.8px; color: rgb(141, 139, 139); margin-left: 12px; font-size:.42cm;" > <i  class="fa-solid fa-indian-rupee-sign text-decoration-line-through  "><span style="font-weight: 200;" >{{wishlists.totalprice}}</span></i>  </span>
+                                       <span  style="margin-top: 2.3px; color: rgba(30, 167, 30, 0.847);font-weight: 500; font-size:.47cm ;margin-left: 11px;"  > {{wishlists.percentage}}%<span class="" >off</span> </span  >
+                                 </div>
+             
+                                         <div>
+                                             
+                           
+                                         </div>
+                                     
+             
+                             
+                                 <div style="font-weight: 450; font-size: .4cm; margin-top:-15px;" >Free delivery</div>
+                               
+                                 
+                         
+                                   <div (click)="cartdelete(wishlists.id)" style="font-size:.395cm;background-color: rgb(244, 43, 43); color:white;border: solid .005cm; border-radius: .09cm; display: flex; justify-content: center; align-items: center; height:28px; width:106px ; margin-top:8px; margin-left:428px; " >Remove</div>
+                         </div>
+                         
+                     </div>
+                     
+                    </div>
+                 </div>
+             </div>
+
+
+        </div>
+
+        <div class="col-4" >
+            <!-- payment/delivery address page -->
+        <div *ngIf="proceedpay" style="margin-left:-17px; background-color: white; margin-top: 20px;width: 415px;height:355px;" >
+            
+
+            <div class="text-secondary" style="padding-top: 15px; margin-left: 30px; margin-top: 20px;margin-bottom: 20px; font-weight: 500; font-size:.5cm;" >PRICE DETAILS</div>
+             <hr>
+                <div style="margin-left: 30px; font-size:.45cm; margin-bottom: 24px;" >Total Items <span style="margin-left: 240px;" >{{totalcartitems}}</span></div>
+                <div style="margin-left: 30px; font-size:.45cm; margin-bottom: 24px;">Discount <span style="margin-left: 235px;color: rgb(22, 181, 22);" >{{pricediscount}}</span></div>
+                <div style="margin-left: 30px; font-size:.45cm; margin-bottom: 24px;">Delivery charges <span style="margin-left: 180px;color: rgb(24, 168, 24);" >Free</span></div>
+                <hr>
+                <div style="margin-left: 30px; font-size:.49cm; margin-bottom: 20px;">Total amount <span style="margin-left: 180px;"><i class="fa-solid fa-indian-rupee-sign fa-sm"></i>{{cartotal}}</span></div>
+                 
+               <div  style="  display: flex;justify-content: center;" >
+                <div *ngIf="proceedpay" ><div (click)="pay()" *ngIf="!check"  style=" margin-top: 5px; display: flex; justify-content: center;align-items: center;border-radius:.2cm; background-color: green;color: white; width: 200px; height: 35px;" >Proceed to Pay</div></div>
+                <div *ngIf="check" (click)="checkout()" style=" margin-top:5px; display: flex; justify-content: center;align-items: center;border-radius:.2cm; background-color: orange;color: rgb(252, 253, 252); width: 200px; height: 35px;" >Checkout</div>
+                </div>
+
+               
+
+        </div>
+
+                <!-- easy return tag -->
+                <div *ngIf="proceedpay" style="  color: grey; padding-left:22px;padding-top: 15px; width: 406px;margin-left: -12px;height:80px; display: flex;margin-top: 15px;" >
+                  <div style="margin-right: 8px;margin-top: 15px;" > <i class="fa-solid fa-tags fa-2xl"></i></div>
+                   <div>
+                     <h6   >Safe and Secure Payments.Easy returns.100%</h6>
+                   <h6>Authentic products.</h6>
+                   </div>
+                  </div>
+                      <!-- payment and delivery address details page ends -->
+
+
+                       <!-- paypal display page starts -->
+
+                       <div *ngIf="!proceedpay" style="margin-left:-11px; background-color: white; margin-top: 20px;width: 406px;height:295px;" >
+            
+
+                        <div class="text-secondary" style="padding-top: 15px; margin-left: 30px; margin-top: 20px;margin-bottom: 20px; font-weight: 500; font-size:.5cm;" >PRICE DETAILS</div>
+                         <hr>
+                            <div style="margin-left: 30px; font-size:.45cm; margin-bottom: 24px;" >Total Items <span style="margin-left: 240px;" >{{totalcartitems}}</span></div>
+                            <div style="margin-left: 30px; font-size:.45cm; margin-bottom: 24px;">Discount <span style="margin-left: 235px;color: rgb(22, 181, 22);" >{{pricediscount}}</span></div>
+                            <div style="margin-left: 30px; font-size:.45cm; margin-bottom: 24px;">Delivery charges <span style="margin-left: 180px;color: rgb(24, 168, 24);" >Free</span></div>
+                            <hr>
+                            <div style="margin-left: 30px; font-size:.49cm; margin-bottom: 20px;">Total amount <span style="margin-left: 180px;"><i class="fa-solid fa-indian-rupee-sign fa-sm"></i>{{cartotal}}</span></div>
+                             
+                           
+            
+                           
+            
+                    </div>
+            
+                            <!-- easy return tag -->
+                            <div *ngIf="!proceedpay" style="  color: grey; padding-left:22px;padding-top: 15px; width: 406px;margin-left: -12px;height:80px; display: flex;margin-top: 20px;" >
+                              <div style="margin-right: 8px;margin-top: 15px;" > <i class="fa-solid fa-tags fa-2xl"></i></div>
+                               <div>
+                                 <h6   >Safe and Secure Payments.Easy returns.100%</h6>
+                               <h6>Authentic products.</h6>
+                               </div>
+                              </div>
+
+                           <!-- paypal display display ends -->
+                  </div>
+
+    </div>
+</div>
+</ng-container>
+
+
+<!-- emptycart -->
+<!-- empty cart -->
+
+<ng-container *ngIf="!spinners" >
+  <div  style="background-color: white; margin-bottom:px;  width:100%; height:540px;" *ngIf="cart.length==0"  >
+    <div class="row">
+        
+
+        <div style="margin-top:5px;" class="col text-center">
+            <img style="padding-top: 50px;" height="340px" src="https://www.theheartmart.com/customer_portal/shopping2-gif.gif" alt="">
+            <h3 style="margin-top:10px; margin-bottom: 20px;" class="text-danger" >Your Cart is Empty</h3>
+           <div style="display: flex; justify-content: center;align-items: center;align-content: center;">
+            <div style="padding-top:5px; color: whitesmoke; border-radius:.2cm; background-color: green; width:135px;height: 34px;" class="" routerLink="/products/wishlist">Add More </div>
+           </div>
+        </div>
+    </div>
+    </div>
+</ng-container>
+
+
+
+    <!-- modal -->
+
+

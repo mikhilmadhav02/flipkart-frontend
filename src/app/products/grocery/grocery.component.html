@@ -1,0 +1,66 @@
+
+<app-allproducts></app-allproducts>
+
+<!-- spinners -->
+
+<div  style="width: 100%;height:425.4px ;background-color: white;" *ngIf="spinners" >
+
+    <div style="margin-left:617px;padding-top:153px;" >
+  
+      <div  class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+  
+    </div>
+  
+  </div>
+
+<!-- search empy -->
+<div *ngIf="(grocery |filter:searchkey:'title').length==0" style="text-align: center;color: red;font-size: .9cm;margin-bottom:205px; margin-top: 155px;" >No Product Found!!!</div>
+<!-- search empy ends -->
+
+<!-- products -->
+
+<div id="gdiv" *ngIf="!spinners" >
+
+<div style=" width: 98%;margin-left: 13px; background-color: white; margin-top: 15px;" class="row d-flex justify-content-evenly align-item-center ">
+
+    <div *ngIf="(grocery |filter:searchkey:'title').length>0" style="margin-top: 15px; margin-left: 50px;" ><h4>Staples & Household Cares</h4></div>
+
+    <div  *ngFor="let grocerys of grocery |filter :searchkey: 'title' " style="border-style:solid;border-width:.0001rem; border-radius: 5%; border-color: rgb(231, 225, 225)  ; width:200px ; height: 285px;margin-left:10px;margin-right: 10px; margin-bottom: 15px; margin-top: 12px; background-color: white; " class=" col-3   ">
+       
+
+       <div class="d-flex justify-content-center align-item-center" >
+        <div id="hdiv" routerLink="/view/{{grocerys.id}}" style="transition: transform 220ms; display: flex; justify-content: center;align-items: center; position: absolute; margin-left:-12px ; margin-top: 38px;" ><img  width="128px" height="130px" [src]="grocerys.image" alt=""></div>
+        <div style="position: relative; margin-left: 153px;padding-top:8px;" >  <i (click)="wishlist(grocerys)" id="groserywish" class="fa-regular fa-heart fa-lg text-secondary"></i></div>
+       </div>
+         
+         
+        <div  style="margin-top: 160px;" >
+            <p style="font-size:.44cm; font-weight: 630;color: rgb(140, 134, 134);" class="" >{{grocerys.brand}}</p>
+           <div style="display: flex;" >
+            <p class="" style=" font-size: .4cm; color: black; margin-top: -20px;" >{{grocerys.title}}</p>
+             <span style="margin-left: 18.5px; margin-top:-38px; padding-left: 7px; " class="" ><img width="68px" height="58px" src="https://2.bp.blogspot.com/-Sj5J2ajfc8s/V9BQKrDTA-I/AAAAAAAAAUA/ywa7oJwDg5ACZb9EoSaDc7fTO27auRD0QCLcB/s1600/fk_assured_logo.jpg" alt=""></span>
+           </div>
+                <div  style="display: flex; margin-top:-14px ;" >
+
+                    <span style="font-size:.43cm ; color: rgb(12, 12, 12); font-weight:lighter;" class=""><i class="fa-solid fa-indian-rupee-sign fa-sm   "></i></span>
+                     <p class="" style=" font-size:.43cm ; color: rgb(11, 11, 11); margin-top:-.8px; font-weight: 500; " >{{grocerys.offerprice}}</p>
+                    
+                    <span class="" style=" font-weight:100; margin-top: 2.8px; color: rgb(141, 139, 139); margin-left: 12px; font-size:.32cm;" > <i style="" class="fa-solid fa-indian-rupee-sign text-decoration-line-through  "><span style="font-weight: 200;" >{{grocerys.price}}</span></i>  </span>
+                      <span  style="margin-top: 2.3px; color: rgba(30, 167, 30, 0.847);font-weight: 500; font-size:.36cm ;margin-left: 11px;"  > {{grocerys.percentage}}%<span class="" >off</span> </span  >
+                </div>
+            <div style="font-weight: 450; font-size: .35cm; margin-top:-17px;" >Free 
+                delivery
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-3"></div>
+    <div class="col-3"></div>
+    <div class="col-3"></div>
+</div>
+
+
+</div>

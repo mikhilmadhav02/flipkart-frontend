@@ -1,0 +1,173 @@
+<!-- spinners -->
+
+<div style="height: 546px;; width: 100%;background-color: white;" *ngIf="spinners" >
+
+    <div style="margin-left:600px;padding-top:287px;" >
+  
+      <div  class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+  
+    </div>
+  
+  </div>
+
+
+
+
+<div *ngIf="!spinners" style="margin-left: 13px; width:1238px;margin-top: 22px; height:;background-color: white;" >
+<!-- first row -->
+<div class="row">
+    <!-- col7 -->
+    <div style="" class="col-6">
+
+        <div style="border-right:.001cm solid grey; margin-right: -17px;">
+
+           
+
+            <div style="margin-left:50px;margin-top:60px;font-weight: 500; font-size:.59cm;  " >Personal Information: </div>
+            <!-- main div -->
+        <div style=" margin-left: 160px;margin-top:20px;" >
+           
+            <div style="display: flex;margin-bottom: 10px;" >
+                <div style="color: rgba(147, 145, 145, 0.998); font-size:.5cm;font-weight: 500;">Name:</div> <div style="margin-top:1px;margin-left:14px;font-size:.5cm;font-weight: 500; color: rgba(110, 109, 109, 0.97);">{{profiledetails.name}}</div>
+            </div>
+            <div style="display: flex;margin-bottom: 10px;" >
+                <div style="color: rgba(147, 145, 145, 0.998); font-size: .5cm;font-weight: 500;">Mail Id:</div> <div style="color: rgba(110, 109, 109, 0.97);font-weight: 500; margin-top:px;margin-left: 14px;font-size: .5cm;">{{profiledetails.mail}}</div>
+            </div>
+            <div style="display: flex;margin-bottom: 9px;">
+                <div style="color: rgba(147, 145, 145, 0.998); font-size: .5cm;font-weight: 500;">Mobile:</div> <div style="margin-top:1px;margin-left: 14px;font-weight: 500; color: rgba(110, 109, 109, 0.97);font-size: .5cm;" >{{profiledetails.mobile}}</div>
+            </div>
+            <div style="display: flex;margin-bottom: px;">
+                <div style="color: rgba(147, 145, 145, 0.998); font-size: .5cm;font-weight: 500;">Username:</div> <div style="margin-top:1px; margin-left: 14px;font-weight: 500; color: rgba(110, 109, 109, 0.97);font-size: .5cm;">{{profiledetails.username}}</div>
+            </div>
+
+        </div>
+
+        </div>
+                     <!-- button -->
+                     <div data-bs-toggle="modal" data-bs-target="#staticBackdrop"  style="margin-left:240px;margin-top:53px;margin-bottom: 47px; display: flex;justify-content: center;align-items: center;width:150px; height: 33px;border-radius:.15cm; background-color: red; color: whitesmoke;" > <div>Delete Account</div> </div>
+    </div>
+    <!-- existing address col -->
+    <div class="col-6" *ngIf="add" >
+
+        <div (click)="addaddress()" style="width:130px; height:28px; margin-top:70px;margin-left:440px ; background-color: green; border-radius:.13cm;" > <div style=" display: flex; justify-content: center; align-items: center; color: white;" ><i class="fa-solid fa-plus fa-xs mt-1 me-1"> </i> <span style="margin-top: 1px;"> Add Address</span></div> </div>
+
+        <div style="margin-top: 25px;">
+
+            <h5 style="margin-left:55px;margin-top:px; " >Delivery Address: </h5>
+            <!-- main div -->
+        <div style="margin-right: px; margin-left: 170px;margin-top:10px;" class="col-12"  *ngFor="let details of address" >
+           
+            <div style="display: flex;margin-bottom: 3px;" >
+                <div style="font-size:.43cm;">{{details.name}}</div> 
+            </div>
+            <div style="display: flex;margin-bottom: 3px;" >
+                <div style="font-size: .43cm;">{{details.address}}</div> 
+            </div>
+            <div style="display: flex;margin-bottom: 3px;">
+                <div style="font-size: .43cm;">{{details.state}}</div>
+            </div>
+            <div style="display: flex;margin-bottom: 3px;">
+                <div style="font-size: .43cm;">{{details.pincode}}</div> 
+            </div>
+            <div style="display: flex;margin-bottom: px;">
+                <div style="font-size: .43cm;">{{details.mobile}}</div> 
+            </div>
+                              
+             <!-- button -->
+             <div (click)="deleteaddress(details.name)" style="margin-bottom:40px; margin-left:285px;margin-top:-28px; display: flex;justify-content: center;align-items: center;width:120px; height: 26px;border-radius:.15cm;  color: red;" > <i class="fa-solid fa-trash fa-lg"></i> </div>
+        </div>
+
+        </div>
+
+       
+
+    </div>
+
+            <!-- when address added col -->
+               <div *ngIf="!add" class="col-6"  >
+
+                 <div class="row" >
+                  
+                    <div class="col-6">
+                        
+                        <div [formGroup]="addressform" style="margin-top: 100px; margin-left: 80px;">
+ 
+                         <div style="margin-bottom: 30px;">
+                             <input name="name" formControlName="name" style="width:200px ; height:30px;font-size:.41cm;" class="form-control" placeholder="full name" type="text">
+                         </div>
+ 
+                         <div style="margin-bottom: 30px;">
+                             <input name="email" formControlName="email" style="width:200px ; height:30px;font-size:.41cm;" class="form-control" placeholder="mail id" type="text">
+                         </div>
+                         
+                         <div  style="margin-bottom: 30px;">
+                             <input name="mobile" formControlName="mobile" style="width:200px ; height:30px;font-size:.41cm;" class="form-control" placeholder="mobile" type="text">
+                         </div>
+ 
+                        </div>
+                     </div>
+                     <div class="col-6">
+ 
+                         <div [formGroup]="addressform" style="margin-top: 100px; margin-left: 10px;">
+ 
+                             <div style="margin-bottom: 30px;">
+                                 <input name="address" formControlName="address" style="width:200px ; height:30px;font-size:.41cm;" class="form-control" placeholder="address" type="text">
+                             </div>
+     
+                             <div style="margin-bottom: 30px;">
+                                 <input name="state" formControlName="state" style="width:200px ; height:30px;font-size:.41cm;" class="form-control" placeholder="state & district" type="text">
+                             </div>
+                             
+                             <div style="margin-bottom: 30px;">
+                                 <input name="pincode" formControlName="pincode" style="width:200px ; height:30px;font-size:.41cm;" class="form-control" placeholder="pincode" type="text">
+                             </div>
+     
+                            </div>
+ 
+                     </div>
+                    
+                  
+                       <div (click)="addfromaddress()" style="margin-left:261px; margin-top:30px; width: 120px; height:27px;color: white; background-color: green; border-radius:.12cm; display: flex; justify-content: center;" >  <div style="margin-top:1px;">Add</div> </div>
+
+                 </div>
+
+
+               </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- modals -->
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Account,</h1>
+          
+        </div>
+        <div class="modal-body">
+          <form  [formGroup]="deleteacc" >
+           
+            <input name="confirmpass" formControlName="confirmpass" style="width:200px;" placeholder="Enter Your Password" class="form-control" type="text">
+                      
+        </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button (click)="deleteaccount()" data-bs-dismiss="modal" type="button" class="btn btn-danger">Confirm to Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- modal ends -->

@@ -1,0 +1,52 @@
+
+<div style="margin-left: 11px;margin-right:10px ; margin-bottom:px; margin-top: 22px; background-color: white;" >
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+    
+    <div class="row ">
+    
+        <div class="col-2"></div>
+        <div class="col-3 text-center ">
+            <br>
+            <br>
+    
+           <div class="mb-3 fw-bold" > New User, Please Click to register,</div>
+            <button routerLink="/register" class="btn btn-success" >Register</button>
+        </div>
+        
+        <div class="col-4 ">
+            <form [formGroup]="login" class=" border rounded  text-center p-3 pt-3" >
+    
+                <div>
+                  <input name="username" formControlName="username" placeholder="username" class="form-control mb-4" type="text">
+                </div>
+                <div>
+                  <input name="password" formControlName="password" placeholder="password" class="form-control mb-3" type="text">
+                </div>
+              <button  (click)="alllogin()" style="width: 150px; height: 35px;" class="btn btn-primary text-center" >Login</button>
+              
+              </form>
+              <br>
+              <br>
+              <br>
+    <br>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    
+    
+    </div>
+
+
+
+   
+    
+
+    
+

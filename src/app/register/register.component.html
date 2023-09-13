@@ -1,0 +1,73 @@
+
+<div style=" margin-left: 14px; margin-right: 13px;margin-top: 22px;margin-bottom:px; background-color: white;" >
+
+    <br>
+    <br>
+   
+   
+    
+    
+    
+    
+    <div class="row mt-3">
+    
+        <div class="col-1"></div>
+        <div class="col-3 text-center ">
+            <br>
+            <br>
+    
+           <div class="mb-3 fw-bold" > Existing User,Click to Login</div>
+            <button style="width: 100px; height: 35px;"  routerLink="/login" class="btn btn-success" >Login</button>
+        </div>
+        
+        <div class="col-6 ">
+            <form [formGroup]="register" class=" border rounded  text-center p-3 pt-4" >
+    
+             
+                  <div class="row">
+                    
+                    <div class="col-6">
+                        <div>
+                        <input name="name" formControlName="name" placeholder="name:" class="form-control mb-4" type="text">
+                </div>
+                <div>
+                  <input name="mobile" formControlName="mobile" placeholder="mobile:" class="form-control mb-4" type="text">
+                </div>
+                <div>
+                    <input name="mail" formControlName="mail" placeholder="mail:" class="form-control mb-3" type="text">
+                  </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            <input name="username" formControlName="username" placeholder="username/mobile no:" class="form-control mb-4" type="text">
+                    </div>
+                    <div>
+                      <input name="password" formControlName="password" placeholder="password:" class="form-control mb-4" type="text">
+                    </div>
+                    <div>
+                        <input name="confirmpassword" formControlName="confirmpassword" placeholder="confirm password:" class="form-control mb-3" type="text">
+                      </div>
+
+
+                    </div>
+
+                    <div class="text-center mt-2" >
+                        <button (click)="registerclick()" style="width: 150px; height: 35px;" class="btn btn-primary text-center" >Register</button>
+                      </div>
+                    
+                  </div>
+             
+              
+              </form>
+             
+              <br>
+              <br>
+<br>
+              
+    
+        </div>
+        <div class="col-1"></div>
+    </div>
+    
+    
+    </div>

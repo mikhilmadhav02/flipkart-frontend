@@ -1,0 +1,112 @@
+<!-- spinners -->
+
+<div style="width: 100%;height:425.4px ;background-color: white;" *ngIf="spinners" >
+
+    <div style="margin-left:600px;padding-top:205px;" >
+  
+      <div  class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+  
+    </div>
+  
+  </div>
+
+
+<!-- empty cart -->
+
+<ng-container *ngIf="!spinners" >
+    <div  style="background-color: white; margin-bottom:px;  width:100%; height:540px;" *ngIf="wishlist.length==0"  >
+      <div class="row">
+          
+  
+          <div style="margin-top:5px;" class="col text-center">
+              <img style="padding-top: 50px;" height="340px" src="https://www.theheartmart.com/customer_portal/shopping2-gif.gif" alt="">
+              <h3 style="margin-top:20px; margin-bottom: 20px;" class="text-danger" >Your Wishlist is Empty</h3>
+             <div style="display: flex; justify-content: center;align-items: center;align-content: center;">
+              <div style=" margin-top:10px; padding-top:5px; color: whitesmoke; border-radius:.2cm; background-color: green; width:135px;height: 34px;" class="" routerLink="">Add More </div>
+             </div>
+          </div>
+      </div>
+      </div>
+  </ng-container>
+
+<!-- wishlist code -->
+<ng-container *ngIf="!spinners" >
+    <div  *ngIf="wishlist.length>0" style="margin-top: 19px ;margin-bottom:165px;  " >
+        <div style="display: flex; justify-content: center; background-color: white; padding-left: 20px; padding-top: 20px;"><h3  style="margin-top:-7px; margin-bottom: 12px;" >My Wishlist</h3></div>
+        <div class="row">
+            
+            <div  style="  background-color: white; border-right:solid.035cm;  border-color: lightgrey;   margin-top: 10px; margin-bottom:-6px;  height: 180px;" *ngFor="let wishlists of wishlist | filter : searchkey : 'title'    " class="col-6 ">
+               <div class="row">
+                <div class="col-1"></div>
+                <div routerLink="/view/{{wishlists.id}}" style="margin-left:-20px;" class="col-3">
+                    <div style="height: 160px;display: flex; justify-content: center; align-items: center;" >
+                        <div><img width="130px" height="130px" [src]="wishlists.image" alt=""></div>
+                         
+                     </div>
+                </div>
+                <div style="margin-left:-10px;" class="col-8">
+                    <div  style="margin-top: 20px;" >
+                       
+                       <div style="display: flex;" >
+                        <p style="font-size:.53cm; font-weight: 630;color: rgb(126, 126, 126);" class="" >{{wishlists.brand}}</p>
+                        <p  class="ms-2 " style="margin-top: 3px; font-size: .435cm; color: black; " >{{wishlists.title}}</p>
+                         
+                                  </div>
+                       <button class="btn" style=" margin-top: -35px; width: 40px; height: 23.5px; color: white; background-color: green; ">
+                                  <div style=" margin-top:-4.69px; display: flex; justify-content: center;" ><p style="font-size:.34cm;" >4.3</p> <p style="margin-left: 2px; margin-top: 3.5px; font-size:.235cm;" > <i class="fa-solid fa-star "></i></p></div>
+                       </button>
+        
+                       <div style="margin-left: 60px; margin-top: -50px;   "  >
+                        <span class="" ><img width="80px" height="50px" src="https://www.vinculumgroup.com/wp-content/uploads/2022/11/flipkart-assured.png" alt=""></span>
+                       </div>
+        
+                              <div  style="display: flex; margin-top:-5px ;" >
+                      <span style="font-size:.5cm ; color: rgb(12, 12, 12); font-weight:lighter;" class=""><i class="fa-solid fa-indian-rupee-sign fa-sm   "></i></span>
+                                 <p class="" style=" font-size:.55cm ; color: rgb(11, 11, 11); margin-top:px; font-weight: 500; " >{{wishlists.offerprice}}</p>
+                                
+                                <span class="" style=" font-weight:100; margin-top: 2.8px; color: rgb(141, 139, 139); margin-left: 12px; font-size:.42cm;" > <i  class="fa-solid fa-indian-rupee-sign text-decoration-line-through  "><span style="font-weight: 200;" >{{wishlists.price}}</span></i>  </span>
+                                  <span  style="margin-top: 2.3px; color: rgba(30, 167, 30, 0.847);font-weight: 500; font-size:.47cm ;margin-left: 11px;"  > {{wishlists.percentage}}%<span class="" >off</span> </span  >
+                            </div>
+        
+                                    <div>
+                                        
+                      
+                                    </div>
+                                
+        
+                        
+                            <div style="font-weight: 450; font-size: .4cm; margin-top:-15px;" >Free delivery</div>
+                          
+                            <div (click)="deletewishlist(wishlists.id)" style=" margin-top:-114px; margin-left:350px;" ><i  class="fa-solid fa-trash text-secondary text-danger"></i></div>
+                    
+                              <div (click)="addtocart(wishlists)" style="font-size:.375cm;background-color: green; color:white;border: solid .005cm; border-radius: .09cm; display: flex; justify-content: center; align-items: center; height:26px; width:106px ; margin-top:78px; margin-left:305px; " >Add to Cart</div>
+                    </div>
+                    
+                </div>
+                
+               </div>
+            </div>
+        
+            <div class="col-6"></div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+</ng-container>
+
+
+
+
